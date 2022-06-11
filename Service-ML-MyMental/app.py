@@ -269,11 +269,12 @@ def preprocess_text(text):
 
 def load_model():
     # change the path according to the environment
-    model_dir = os.getcwd()
+    # model_dir = os.getcwd()
     # model_dir = os.path.join(os.getcwd(), 'api-services-model', 'model_ml')
     # load model
-    model_name = 'suicide-detector.h5'
-    model_path = os.path.join(model_dir, model_name)
+    # model_name = 'suicide-detector.h5'
+    # model_path = os.path.join(model_dir, model_name)
+    model_path = "gs://mymental-model-bucket/suicide-detector.h5"
     model = tf.keras.models.load_model(model_path)
 
     # load tokenizer
