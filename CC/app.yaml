@@ -3,8 +3,6 @@ runtime: nodejs14
 instance_class: F1
 
 env_variables:
-  MYSQLDB: skingorithm-db
+  MYSQLDB: mymentaldb
   MYSQLPORT: 3306
   HOST: 0.0.0.0
-
-services: backend
