@@ -1,0 +1,29 @@
+steps:
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    secretEnv: [
+        "DB_HOST",
+        "DB_PASSWORD",
+        "DB_USERNAME",
+      ]
+    entrypoint: "bash"
+    args:
+      - -c
+      - |
+        
+        #echo $'\n  ACCESS_TOKEN_KEY: '$$ACCESS_TOKEN_KEY >> app.yaml
+        echo $'\n  DB_HOST: '$$DB_HOST >> app.yaml
+        echo $'\n  DB_PASSWORD: '$$DB_HOST >> app.yaml
+        echo $'\n  DB_USERNAME: '$$DB_HOST >> app.yaml
+        gcloud config set app/cloud_build_timeout 1600
+        gcloud app deploy
+        gcloud app browse
+timeout: "1600s"
+availableSecrets:
+  secretManager:
+    - versionName: projects/637632514001/secrets/DB_HOST
+      env: "DB_HOST"
+    - versionName: projects/637632514001/secrets/DB_PASSWORD
+      env: "DB_PASSWORD"
+    - versionName: projects/637632514001/secrets/DB_USERNAME
+      env: "DB_USERNAME"
+

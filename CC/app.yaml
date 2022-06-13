@@ -1,0 +1,10 @@
+runtime: nodejs14
+
+instance_class: F1
+
+env_variables:
+  MYSQLDB: skingorithm-db
+  MYSQLPORT: 3306
+  HOST: 0.0.0.0
+
+services: backend
